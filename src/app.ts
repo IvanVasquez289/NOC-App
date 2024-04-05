@@ -1,2 +1,10 @@
-const saludo:string = 'Hola mundo'
-console.log(saludo)
+import { Server } from "./presentation/server"
+
+
+(async()=>{
+    main()
+})()
+
+function main (){
+    Server.start()
+}
