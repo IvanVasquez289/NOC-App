@@ -18,6 +18,7 @@ export class Server {
             '*/4 * * * * *',
             () => {
                 const service = new CheckService().execute('https://www.google.com');
+                // new CheckService().execute('http://localhost:3000');
             }
         ) 
     }

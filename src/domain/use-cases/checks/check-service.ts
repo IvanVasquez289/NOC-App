@@ -11,7 +11,7 @@ export class CheckService implements  CheckServiceUseCase {
             console.log(`${url} is ok`)
             return true
         } catch (error) {
-            console.log(error)
+            console.log(`${error}`)
             return false
         }
     }
