@@ -29,7 +29,7 @@ export class FileSystemDatasource implements LogDatasource {
     }
 
     saveLog(log: LogEntity): Promise<void> {
-        throw new Error("Method not implemented.");
+        throw new Error("Method not implemented hola.");
     }
     getLogs(level: LogSeverityLevel): Promise<LogEntity[]> {
         throw new Error("Method not implemented.");
