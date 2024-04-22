@@ -15,3 +15,5 @@ MAILER_SECRET_KEY=
 
 PROD=true
 ```
+3. Ejecutar el comando ```npm install ``` para instalar los modulos de node
+3. Ejecutar el comando ```npm run dev ``` para iniciar la app

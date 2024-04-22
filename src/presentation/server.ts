@@ -12,6 +12,8 @@ export class Server {
     public static start(){
         console.log('Server running...')
 
+        // Mandar email
+
         // CronService.createJob(
         //     '*/2 * * * * *',
         //     () => {
