@@ -15,15 +15,22 @@ export class Server {
 
         // Mandar email
         const emailService = new EmailService()
-        emailService.sendEmail({
-            to: 'ivanjv1234@gmail.com',
-            subject: 'Holaaa',
-            htmlBody: `
-                <h3>Logs del sistema</h3>
-                <p>Hola mundo desde  el servidor de logs.</p>
-                <p>Ver logs...</p>
-            `
-        })
+
+        emailService.sendEmailWithFileSystemLogs(
+            ['ivanker289@gmail.com','ivanjv1234@gmail.com',]
+        )
+
+        // emailService.sendEmail({
+        //     to: 'ivanjv1234@gmail.com',
+        //     subject: 'Holaaa',
+        //     htmlBody: `
+        //         <h3>Logs del sistema</h3>
+        //         <p>Hola mundo desde  el servidor de logs.</p>
+        //         <p>Ver logs...</p>
+        //     `
+        // })
+
+
 
         // CronService.createJob(
         //     '*/2 * * * * *',
