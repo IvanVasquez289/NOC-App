@@ -1,5 +1,7 @@
 import nodemailer from 'nodemailer'
 import { envs } from '../../config/plugins/env.plugins';
+import { LogRepository } from '../../domain/repository/log.repository';
+import { LogEntity, LogSeverityLevel } from '../../domain/entities/log.entity';
 
 interface  SendEmailOptions {
     to: string | string[];
@@ -14,6 +16,11 @@ interface Attachment {
 }
 
 export class EmailService {
+
+    constructor(
+        private readonly logRepository: LogRepository,
+    ){}
+    
     private transporter = nodemailer.createTransport({
         service: envs.MAILER_SERVICE,
         auth: {
@@ -32,9 +39,24 @@ export class EmailService {
                 attachments: attachments
             })
             console.log(sendInformation)
-           
+            
+            const log = new LogEntity({
+                level: LogSeverityLevel.low,
+                message: 'Email sent correctly',
+                origin: 'email.service.ts'
+            })
+            this.logRepository.saveLog(log)
+
             return true
         } catch (error) {
+            
+            const log = new LogEntity({
+                level: LogSeverityLevel.high,
+                message: 'Email was not sent correctly',
+                origin: 'email.service.ts'
+            })
+            this.logRepository.saveLog(log)
+
             return false
         }
     }
