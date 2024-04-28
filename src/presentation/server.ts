@@ -15,11 +15,13 @@ export class Server {
         console.log('Server running...')
 
         // Mandar email
-        const emailService = new EmailService()
+        // const emailService = new EmailService()
 
-        new SendEmailLogs(emailService, fileSystemLogRepository).execute(
-            ['ivanker289@gmail.com','ivanjv1234@gmail.com',]
-        )
+        // new SendEmailLogs(emailService, fileSystemLogRepository).execute(
+        //     ['ivanker289@gmail.com','ivanjv1234@gmail.com',]
+        // )
+
+        
         // emailService.sendEmailWithFileSystemLogs(
         //     ['ivanker289@gmail.com','ivanjv1234@gmail.com',]
         // )
