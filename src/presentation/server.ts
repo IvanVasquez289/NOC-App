@@ -9,8 +9,8 @@ import { EmailService } from "./email/email.service";
 
 
 const LogRepository = new LogRepositoryImplementation( 
-    // new FileSystemDatasource()
-    new MongoDatasource()
+    new FileSystemDatasource()
+    // new MongoDatasource()
 )
 export class Server {
 
@@ -24,19 +24,19 @@ export class Server {
         //     ['ivanker289@gmail.com','ivanjv1234@gmail.com',]
         // )
 
-        // const logs = await LogRepository.getLogs(LogSeverityLevel.high)
-        // console.log(logs)
+        const logs = await LogRepository.getLogs(LogSeverityLevel.low)
+        console.log(logs)
 
-        CronService.createJob(
-            '*/4 * * * * *',
-            () => {
-                const url = 'https://google.com'
-                new CheckService(
-                    LogRepository,
-                    () =>  console.log(` ${url} is up!`),
-                    (error) => console.log(error),
-                ).execute(url);
-            }
-        ) 
+        // CronService.createJob(
+        //     '*/4 * * * * *',
+        //     () => {
+        //         const url = 'https://google.com'
+        //         new CheckService(
+        //             LogRepository,
+        //             () =>  console.log(` ${url} is up!`),
+        //             (error) => console.log(error),
+        //         ).execute(url);
+        //     }
+        // ) 
     }
 }
