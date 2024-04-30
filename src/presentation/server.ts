@@ -1,17 +1,20 @@
+import { LogSeverityLevel } from "../domain/entities/log.entity";
 import { CheckService } from "../domain/use-cases/checks/check-service";
 import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
 import { FileSystemDatasource } from "../infraestructure/datasources/file-system.datasource";
+import { MongoDatasource } from "../infraestructure/datasources/mongo.datasource";
 import { LogRepositoryImplementation } from "../infraestructure/repositories/log-repository.impl";
 import { CronService } from "./cron/cron-service"
 import { EmailService } from "./email/email.service";
 
 
-const fileSystemLogRepository = new LogRepositoryImplementation( 
-    new FileSystemDatasource()
+const LogRepository = new LogRepositoryImplementation( 
+    // new FileSystemDatasource()
+    new MongoDatasource()
 )
 export class Server {
 
-    public static start(){
+    public static async start(){
         console.log('Server running...')
 
         // Mandar email
@@ -21,41 +24,19 @@ export class Server {
         //     ['ivanker289@gmail.com','ivanjv1234@gmail.com',]
         // )
 
-        
-        // emailService.sendEmailWithFileSystemLogs(
-        //     ['ivanker289@gmail.com','ivanjv1234@gmail.com',]
-        // )
+        // const logs = await LogRepository.getLogs(LogSeverityLevel.high)
+        // console.log(logs)
 
-        // emailService.sendEmail({
-        //     to: 'ivanjv1234@gmail.com',
-        //     subject: 'Holaaa',
-        //     htmlBody: `
-        //         <h3>Logs del sistema</h3>
-        //         <p>Hola mundo desde  el servidor de logs.</p>
-        //         <p>Ver logs...</p>
-        //     `
-        // })
-
-
-
-        // CronService.createJob(
-        //     '*/2 * * * * *',
-        //     () => {
-        //         const date = new Date()
-        //         console.log('2 seconds', date);
-        //     }
-        // ) 
-        
-        // CronService.createJob(
-        //     '*/4 * * * * *',
-        //     () => {
-        //         const url = 'https://google.com'
-        //         new CheckService(
-        //             fileSystemLogRepository,
-        //             () =>  console.log(` ${url} is up!`),
-        //             (error) => console.log(error),
-        //         ).execute(url);
-        //     }
-        // ) 
+        CronService.createJob(
+            '*/4 * * * * *',
+            () => {
+                const url = 'https://google.com'
+                new CheckService(
+                    LogRepository,
+                    () =>  console.log(` ${url} is up!`),
+                    (error) => console.log(error),
+                ).execute(url);
+            }
+        ) 
     }
 }
