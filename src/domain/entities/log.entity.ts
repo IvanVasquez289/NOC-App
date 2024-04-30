@@ -36,4 +36,16 @@ export class LogEntity {
         });
         return  log;
     }
+
+    static fromObject = (mongoObject: {[key:string]: any}): LogEntity  =>{
+        const {message,level,origin,createdAt} = mongoObject;
+        const log = new LogEntity({
+            message,
+            level,
+            origin,
+            createdAt
+        })
+
+        return log
+    }
 }
