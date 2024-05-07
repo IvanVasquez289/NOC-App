@@ -3,14 +3,16 @@ import { CheckService } from "../domain/use-cases/checks/check-service";
 import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
 import { FileSystemDatasource } from "../infraestructure/datasources/file-system.datasource";
 import { MongoDatasource } from "../infraestructure/datasources/mongo.datasource";
+import { PostgresDatasource } from "../infraestructure/datasources/postgres.datasource";
 import { LogRepositoryImplementation } from "../infraestructure/repositories/log-repository.impl";
 import { CronService } from "./cron/cron-service"
 import { EmailService } from "./email/email.service";
 
 
 const LogRepository = new LogRepositoryImplementation( 
-    new FileSystemDatasource()
+    // new FileSystemDatasource()
     // new MongoDatasource()
+    new PostgresDatasource()
 )
 export class Server {
 
@@ -24,19 +26,19 @@ export class Server {
         //     ['ivanker289@gmail.com','ivanjv1234@gmail.com',]
         // )
 
-        const logs = await LogRepository.getLogs(LogSeverityLevel.low)
+        const logs = await LogRepository.getLogs(LogSeverityLevel.medium)
         console.log(logs)
 
-        // CronService.createJob(
-        //     '*/4 * * * * *',
-        //     () => {
-        //         const url = 'https://google.com'
-        //         new CheckService(
-        //             LogRepository,
-        //             () =>  console.log(` ${url} is up!`),
-        //             (error) => console.log(error),
-        //         ).execute(url);
-        //     }
-        // ) 
+        CronService.createJob(
+            '*/4 * * * * *',
+            () => {
+                const url = 'https://google.com'
+                new CheckService(
+                    LogRepository,
+                    () =>  console.log(` ${url} is up!`),
+                    (error) => console.log(error),
+                ).execute(url);
+            }
+        ) 
     }
 }
