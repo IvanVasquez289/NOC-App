@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.53% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/52</span>
+                <span class='fraction'>52/52</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">80% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.53% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/52</span>
+                <span class='fraction'>52/52</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,6 +115,32 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -139,32 +165,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 export enum LogSeverityLevel {
     low = 'low',
@@ -193,29 +193,29 @@ export class LogEntity {
         this.createdAt = createdAt;
     }
 &nbsp;
-    static fromJson = <span class="fstat-no" title="function not covered" >(jsonAsString: string): LogEntity =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        jsonAsString = (jsonAsString === '')  ? '{}' : jsonAsString;</span>
-<span class="cstat-no" title="statement not covered" >        const  {level,message,origin,createdAt} = JSON.parse(jsonAsString)</span>
-<span class="cstat-no" title="statement not covered" >        const log = new  LogEntity({</span>
-<span class="cstat-no" title="statement not covered" >            level,</span>
-<span class="cstat-no" title="statement not covered" >            message,</span>
-<span class="cstat-no" title="statement not covered" >            origin,</span>
-<span class="cstat-no" title="statement not covered" >            createdAt</span>
-<span class="cstat-no" title="statement not covered" >        });</span>
-<span class="cstat-no" title="statement not covered" >        return  log;</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+    static fromJson = (jsonAsString: string): LogEntity =&gt; {
+        jsonAsString = (jsonAsString === '')  <span class="branch-0 cbranch-no" title="branch not covered" >? '{}' </span>: jsonAsString;
+        const  {level,message,origin,createdAt} = JSON.parse(jsonAsString)
+        const log = new  LogEntity({
+            level,
+            message,
+            origin,
+            createdAt: new Date(createdAt)
+        });
+        return  log;
+    }
 &nbsp;
-    static fromObject = <span class="fstat-no" title="function not covered" >(mongoObject: {[key:string]: any}): LogEntity  =&gt;{</span>
-<span class="cstat-no" title="statement not covered" >        const {message,level,origin,createdAt} = mongoObject;</span>
-<span class="cstat-no" title="statement not covered" >        const log = new LogEntity({</span>
-<span class="cstat-no" title="statement not covered" >            message,</span>
-<span class="cstat-no" title="statement not covered" >            level,</span>
-<span class="cstat-no" title="statement not covered" >            origin,</span>
-<span class="cstat-no" title="statement not covered" >            createdAt</span>
-<span class="cstat-no" title="statement not covered" >        })</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        return log</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+    static fromObject = (mongoObject: {[key:string]: any}): LogEntity  =&gt;{
+        const {message,level,origin,createdAt} = mongoObject;
+        const log = new LogEntity({
+            message,
+            level,
+            origin,
+            createdAt
+        })
+&nbsp;
+        return log
+    }
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -223,7 +223,7 @@ export class LogEntity {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-05-09T05:15:37.571Z
+                at 2024-05-09T19:16:01.321Z
             </div>
         <script src="prettify.js"></script>
         <script>

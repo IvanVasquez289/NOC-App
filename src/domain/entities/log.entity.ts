@@ -33,7 +33,7 @@ export class LogEntity {
             level,
             message,
             origin,
-            createdAt
+            createdAt: new Date(createdAt)
         });
         return  log;
     }
