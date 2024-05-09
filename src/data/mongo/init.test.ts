@@ -24,7 +24,7 @@ describe("init.ts",()=>{
             })
             expect(true).toBe(false)
         } catch (error) {
-            // expect(`${error}`).toContain("MongooseError: Can't call `openUri()` on an active connection with different connection strings")
+            expect(`${error}`).toContain("MongooseError: Can't call `openUri()` on an active connection with different connection strings")
         }
     })  
     
